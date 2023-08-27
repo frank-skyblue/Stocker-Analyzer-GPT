@@ -12,7 +12,7 @@ import yfinance as yf
 import warnings
 warnings.filterwarnings("ignore")
 
-os.environ["OPENAI_API_KEY"] = "YOUR_API_KEY"
+os.environ["OPENAI_API_KEY"] = "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"
 
 # Initialize GPT 3.5
 llm=OpenAI(temperature=0,
@@ -178,6 +178,12 @@ def get_stock_analysis(query):
     return analysis
 
 if __name__ == "__main__":
-    query = input("What is your investment question?: ")
-    analysis = get_stock_analysis(query)
-    print(analysis)
+    while True:
+        query = input("What is your investment question?: ")
+        
+        if query == "exit":
+            break
+            
+        analysis = get_stock_analysis(query)
+        print(analysis)
+        print("\n")
